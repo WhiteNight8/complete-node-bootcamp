@@ -1,8 +1,16 @@
 const fs = require('fs')
 const express = require('express')
 const app = express()
+const morgan = require('morgan')
+
+app.use(morgan('dev'))
 
 app.use(express.json())
+
+app.use((req, res, next) => {
+  console.log('i am middleware😊😊')
+  next()
+})
 
 const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
