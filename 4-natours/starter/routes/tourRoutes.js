@@ -8,7 +8,8 @@ router.param('id', tourController.checkID)
 router
   .route('/')
   .get(tourController.getAllTour)
-  .post(tourController.CreatNewTour)
+  .post(tourController.checkBody, tourController.CreatNewTour)
+
 router
   .route('/:id')
   .get(tourController.getTour)
