@@ -37,6 +37,7 @@ exports.getAllTour = (req, res) => {
 
 exports.CreatNewTour = (req, res) => {
   const newId = tours[tours.length - 1].id + 1
+  // eslint-disable-next-line prefer-object-spread
   const newTour = Object.assign({ id: newId }, req.body)
 
   tours.push(newTour)
